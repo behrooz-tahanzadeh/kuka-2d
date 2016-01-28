@@ -1,0 +1,6 @@
+- src: "http://code.jquery.com/jquery-2.0.3.min.js"
+- src: "assets/js/Keyboard.js"
+- src: "assets/js/Point2d.js"
+- src: "assets/js/Vars.js"
+- src: "assets/js/Arm.js"
+- src: "assets/js/Main.js"
