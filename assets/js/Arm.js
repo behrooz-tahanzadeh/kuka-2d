@@ -25,9 +25,10 @@ Arm.List = [];
 
 Arm.DrawAll = function()
 {
+	/*
 	var ctx = Vars.Ctx;
 	ctx.lineWidth = "1";
-	
+	*/
 	for(var i=0; i<Arm.List.length; ++i)
 		Arm.List[i].draw();
 }//eof
@@ -50,13 +51,14 @@ Arm.prototype.draw = function()
 	ctx.drawImage(this.image, this.imagePt.x,this.imagePt.y , w,h);
 	ctx.rotate(-a);
 	ctx.translate(-s.x, -s.y);
-	
+	/*
 	ctx.beginPath();
 	
 	ctx.moveTo(s.x, s.y);
 	ctx.lineTo(e.x, e.y);
 	
 	ctx.stroke();
+	*/
 };//eof
 
 

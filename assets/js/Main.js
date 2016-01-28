@@ -13,8 +13,39 @@ Main =
 		Arm.Init();
 		jQuery("div#pp").click(this.PP.bind(this));
 		jQuery('input#tail').change(this.TailChange.bind(this));
+		jQuery(window).keydown(this.WindowOnKeyPress.bind(this));
 		
 		this.intervalID = setInterval(this.Loop.bind(this), this.intervalTime);
+	},
+	
+	
+	WindowOnKeyPress: function(e)
+	{
+		switch (e.keyCode)
+		{
+			case Keyboard.Right:
+				Arm.List[1].angle+=0.01
+				break;
+				
+			case Keyboard.Left:
+				Arm.List[1].angle-=0.01
+				break;
+				
+			case Keyboard.Top:
+				Arm.List[2].angle-=0.01
+				break;
+				
+			case Keyboard.Bottom:
+				Arm.List[2].angle+=0.01
+				break;
+				
+			case Keyboard.Space:
+				this.PP();
+				break;
+				
+			default:
+				console.log(e.keyCode)
+		}
 	},
 	
 	
