@@ -27,7 +27,8 @@ Arm.DrawAll = function()
 {
 	/*
 	var ctx = Vars.Ctx;
-	ctx.lineWidth = "1";
+	ctx.lineWidth = "2";
+	ctx.strokeStyle="#FF0000";
 	*/
 	for(var i=0; i<Arm.List.length; ++i)
 		Arm.List[i].draw();
@@ -106,7 +107,11 @@ Arm.prototype.getTotalAngle = function()
 
 Arm.Init = function()
 {
-	a0 = new Arm("assets/png/a0.png", null, 100, 0, new Point2D(-63,-50));
-	a1 = new Arm("assets/png/a1.png", a0, 185, Math.PI/-4, new Point2D(-35,-45));
-	a2 = new Arm("assets/png/a2.png", a1, 100, Math.PI/-4, new Point2D(-65,-90));
+	var a0 = new Arm("assets/png/a0.png", null, 100, 0, new Point2D(-160,-80));
+	var a3 = new Arm("assets/png/a3.png", a2, 100, Math.PI/4, new Point2D(-36,-38));
+	var a2 = new Arm("assets/png/a2.png", null, 290, Math.PI/4, new Point2D(-120,-110));
+	var a1 = new Arm("assets/png/a1.png", a0, 280, Math.PI/-4, new Point2D(-62,-80));
+	
+	a2.parentArm = a1;
+	a3.parentArm = a2;
 };

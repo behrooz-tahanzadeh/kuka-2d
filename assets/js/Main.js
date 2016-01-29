@@ -24,19 +24,23 @@ Main =
 		switch (e.keyCode)
 		{
 			case Keyboard.Right:
-				Arm.List[1].angle+=0.01
+				if(e.ctrlKey)
+					Arm.List[2].angle+=0.01;
+				if(e.shiftKey)
+					Arm.List[1].angle+=0.01;
+				
+				if(!e.ctrlKey && !e.shiftKey)
+					Arm.List[3].angle+=0.01;
 				break;
 				
 			case Keyboard.Left:
-				Arm.List[1].angle-=0.01
-				break;
+				if(e.ctrlKey)
+					Arm.List[2].angle-=0.01;
+				if(e.shiftKey)
+					Arm.List[1].angle-=0.01;
 				
-			case Keyboard.Top:
-				Arm.List[2].angle-=0.01
-				break;
-				
-			case Keyboard.Bottom:
-				Arm.List[2].angle+=0.01
+				if(!e.ctrlKey && !e.shiftKey)
+					Arm.List[3].angle-=0.01;
 				break;
 				
 			case Keyboard.Space:
