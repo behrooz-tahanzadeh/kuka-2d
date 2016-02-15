@@ -13,43 +13,29 @@ Main =
 		Arm.Init();
 		jQuery("div#pp").click(this.PP.bind(this));
 		jQuery('input#tail').change(this.TailChange.bind(this));
-		jQuery(window).keydown(this.WindowOnKeyPress.bind(this));
+		
+		Keyboard.Init();
 		
 		this.intervalID = setInterval(this.Loop.bind(this), this.intervalTime);
 	},
 	
 	
-	WindowOnKeyPress: function(e)
+	MoveArms: function()
 	{
-		switch (e.keyCode)
-		{
-			case Keyboard.Right:
-				if(e.ctrlKey)
-					Arm.List[2].angle+=0.01;
-				if(e.shiftKey)
-					Arm.List[1].angle+=0.01;
-				
-				if(!e.ctrlKey && !e.shiftKey)
-					Arm.List[3].angle+=0.01;
-				break;
-				
-			case Keyboard.Left:
-				if(e.ctrlKey)
-					Arm.List[2].angle-=0.01;
-				if(e.shiftKey)
-					Arm.List[1].angle-=0.01;
-				
-				if(!e.ctrlKey && !e.shiftKey)
-					Arm.List[3].angle-=0.01;
-				break;
-				
-			case Keyboard.Space:
-				this.PP();
-				break;
-				
-			default:
-				console.log(e.keyCode)
-		}
+		if(Keyboard.Keys.W.pressed)
+			Arm.List[3].angle+=0.04;
+		else if(Keyboard.Keys.Q.pressed)
+			Arm.List[3].angle-=0.04;
+		
+		if(Keyboard.Keys.S.pressed)
+			Arm.List[2].angle+=0.04;
+		else if(Keyboard.Keys.A.pressed)
+			Arm.List[2].angle-=0.04;
+		
+		if(Keyboard.Keys.X.pressed)
+			Arm.List[1].angle+=0.06;
+		else if(Keyboard.Keys.Z.pressed)
+			Arm.List[1].angle-=0.06;
 	},
 	
 	
@@ -63,6 +49,8 @@ Main =
 	
 	Loop: function()
 	{
+		this.MoveArms();
+		
 		var ctx = Vars.Ctx;
 		
 		ctx.fillStyle = "rgba(255,255,255,"+this.BgOpacity+")";

@@ -107,10 +107,10 @@ Arm.prototype.getTotalAngle = function()
 
 Arm.Init = function()
 {
-	var a0 = new Arm("assets/png/a0.png", null, 100, 0, new Point2D(-160,-80));
-	var a3 = new Arm("assets/png/a3.png", a2, 100, Math.PI/4, new Point2D(-36,-38));
-	var a2 = new Arm("assets/png/a2.png", null, 290, Math.PI/4, new Point2D(-120,-110));
-	var a1 = new Arm("assets/png/a1.png", a0, 280, Math.PI/-4, new Point2D(-62,-80));
+	var a0 = new Arm("assets/png/a0.png", null, 80, 0, new Point2D(-131,-68));
+	var a3 = new Arm("assets/png/a3.png", a2, 80, Math.PI/4, new Point2D(-28,-32));
+	var a2 = new Arm("assets/png/a2.png", null, 232, Math.PI/4, new Point2D(-99,-85));
+	var a1 = new Arm("assets/png/a1.png", a0, 226, Math.PI/-4, new Point2D(-47,-65));
 	
 	a2.parentArm = a1;
 	a3.parentArm = a2;
