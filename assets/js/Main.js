@@ -17,6 +17,26 @@ Main =
 		Keyboard.Init();
 		
 		this.intervalID = setInterval(this.Loop.bind(this), this.intervalTime);
+		jQuery(window).keydown(Main.WindowOnKeyPress.bind(this));
+	},
+	
+	
+	WindowOnKeyPress: function(e)
+	{
+		switch (e.keyCode)
+		{
+			case 39:
+				var v = parseFloat(jQuery('input#tail').val())+(e.shiftKey?0.1:0.01);
+				jQuery('input#tail').val(v);
+				this.TailChange(null);
+				break;
+				
+			case 37:
+				var v = parseFloat(jQuery('input#tail').val())-(e.shiftKey?0.1:0.01);
+				jQuery('input#tail').val(v);
+				this.TailChange(null);
+				break;
+		}
 	},
 	
 	

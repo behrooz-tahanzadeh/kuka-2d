@@ -74,7 +74,7 @@ Arm.prototype.imageOnLoad = function()
 Arm.prototype.startPt = function()
 {
 	if(this.parentArm == null)
-		return new Point2D(200, 500);
+		return new Point2D(400, 500);
 	else
 		return this.parentArm.endPt();
 };//eof
